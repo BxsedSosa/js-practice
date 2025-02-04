@@ -1,12 +1,10 @@
 {
-  "name": "book-directory",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "typescript": "^5.7.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.7",
+    "nodemon": "^3.1.9"
+  }
 }
