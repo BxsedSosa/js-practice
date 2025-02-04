@@ -1,6 +1,18 @@
-function main() {
-  let hello: string = "hello world";
-  console.log(hello);
-}
+const nodemon = require("nodemon");
+const mongoose = require("mongoose");
 
 main();
+
+function main() {
+  const express = require("express");
+  const app = express();
+  const port = 3000;
+
+  app.get("/", (_: any, res: any) => {
+    res.send("Hello World");
+  });
+
+  app.listen(port, () => {
+    console.log("Example");
+  });
+}
