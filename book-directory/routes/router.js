@@ -19,4 +19,12 @@ router.get("/send-book", async () => {
   }
 });
 
+router.get("/get-book", async () => {
+  try {
+    db.retrieve();
+  } catch (err) {
+    console.error("Error:", err);
+  }
+});
+
 module.exports = router;

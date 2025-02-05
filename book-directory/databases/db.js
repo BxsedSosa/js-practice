@@ -36,7 +36,15 @@ class Database {
   };
 
   retrieve = async () => {
-    return new Book().find();
+    Book.find()
+      .then((data) => {
+        data.forEach((obj) => {
+          console.log(`Title: ${obj.title}\nAuthor ${obj.author}`);
+        });
+      })
+      .catch((err) => {
+        console.error("Error: ", err);
+      });
   };
 }
 
