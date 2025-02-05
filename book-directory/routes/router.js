@@ -1,13 +1,19 @@
 const { Database } = require("../databases/db");
+const Book = require("../models/books");
 const express = require("express");
-const router = express.Router();
 
+const router = express.Router();
 const db = new Database();
 
 db.connect();
 
-router.get("/", (_, res) => {
-  res.send("hello");
+router.get("/", async (_, res) => {
+  try {
+    let books = await Book.find();
+    res.render("index", { books });
+  } catch (err) {
+    console.error("Error:", err);
+  }
 });
 
 router.get("/send-book", async () => {

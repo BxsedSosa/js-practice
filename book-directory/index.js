@@ -1,4 +1,3 @@
-const { Database } = require("./databases/db");
 const router = require("./routes/router");
 
 function main() {

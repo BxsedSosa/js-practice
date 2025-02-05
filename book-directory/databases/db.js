@@ -34,18 +34,6 @@ class Database {
       console.error("Error: ", err);
     }
   };
-
-  retrieve = async () => {
-    Book.find()
-      .then((data) => {
-        data.forEach((obj) => {
-          console.log(`Title: ${obj.title}\nAuthor ${obj.author}`);
-        });
-      })
-      .catch((err) => {
-        console.error("Error: ", err);
-      });
-  };
 }
 
 exports.Database = Database;
