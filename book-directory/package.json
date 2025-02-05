@@ -9,7 +9,8 @@
     "express": "^4.21.2",
     "mongodb": "^6.13.0",
     "mongoose": "^8.9.7",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "path": "^0.12.7"
   },
   "name": "book-directory",
   "version": "1.0.0",
