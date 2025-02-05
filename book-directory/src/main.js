@@ -1,12 +1,49 @@
-main();
-function main() {
-    var express = require("express");
-    var app = express();
-    var port = 3000;
-    app.get("/", function (_, res) {
-        res.send("Hello World");
+const mongoose = require("mongoose");
+const credentials = require("../config/info.json");
+const Book = require("../models/books");
+
+const URI = `mongodb+srv://${credentials.user}:${credentials.pass}@book-directory.4lplp.mongodb.net/?retryWrites=true&w=majority&appName=book-directory`;
+
+async function main() {
+  const express = require("express");
+  const app = express();
+  const port = 3000;
+  await mongoose.connect(URI);
+
+  app.get("/", (req, res) => {
+    res.send("hello world");
+    console.log("testing");
+  });
+
+  app.get("/add-book", (req, res) => {
+    const book = new Book({
+      title: "hello world",
+      author: "javascript",
     });
-    app.listen(port, function () {
-        console.log("Example");
-    });
+
+    book
+      .save()
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  app.get("/get-book", (req, res) => {
+    Book.find()
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
 }
+
+main();
