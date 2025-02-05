@@ -11,8 +11,7 @@ async function main() {
   await mongoose.connect(URI);
 
   app.get("/", (req, res) => {
-    res.send("hello world");
-    console.log("testing");
+    res.render("../views/home.ejs");
   });
 
   app.get("/add-book", (req, res) => {
