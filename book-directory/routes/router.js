@@ -9,7 +9,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 db.connect();
 
-router.get("/", async (_, res) => {
+router.get("/", (_, res) => {
+  res.render("home");
+});
+
+router.get("/directory", async (_, res) => {
   try {
     let books = await db.retrieveAll();
     res.render("index", { books });
@@ -26,19 +30,6 @@ router.post("/submit", async (req, res) => {
   let book = db.createBook(req.body.title, req.body.author);
   await db.add(book);
   res.render("button");
-});
-
-router.get("/home", (_, res) => {
-  res.render("home");
-});
-
-router.get("/send-book", async () => {
-  try {
-    let book = db.createBook("testing", "another test");
-    db.add(book);
-  } catch (err) {
-    console.error("Error:", err);
-  }
 });
 
 module.exports = router;
