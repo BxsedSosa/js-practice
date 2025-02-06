@@ -34,6 +34,10 @@ class Database {
       console.error("Error: ", err);
     }
   };
+
+  retrieveAll = async () => {
+    return await Book.find();
+  };
 }
 
 exports.Database = Database;

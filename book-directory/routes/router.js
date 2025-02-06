@@ -1,5 +1,4 @@
 const { Database } = require("../databases/db");
-const Book = require("../models/books");
 const express = require("express");
 
 const router = express.Router();
@@ -9,7 +8,7 @@ db.connect();
 
 router.get("/", async (_, res) => {
   try {
-    let books = await Book.find();
+    let books = await db.retrieveAll();
     res.render("index", { books });
   } catch (err) {
     console.error("Error:", err);
