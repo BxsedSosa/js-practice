@@ -28,7 +28,7 @@ class Database {
     try {
       book
         .save()
-        .then((result) => console.log(result))
+        .then((result) => console.log(`Added Book: ${result}`))
         .catch((err) => console.log("Error: ", err));
     } catch (err) {
       console.error("Error: ", err);
