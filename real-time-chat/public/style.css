@@ -13,3 +13,16 @@ html {
 .nav li {
   list-style-type: none;
 }
+
+#form {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#form input {
+  width: 95%;
+  padding: 7px;
+}
