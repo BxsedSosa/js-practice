@@ -18,7 +18,8 @@ socket.on("newClient", (data) => {
 
 socket.on("msgFromServerToAllClients", (data) => {
   document.getElementById("display").innerHTML +=
-    `<h5>User: ${data.id}</h5><li>${data.newMsg}</li>`;
+    `<h5>User: ${data.id} Time: ${data.time}</h5><li>${data.newMsg}</li>`;
+  window.scrollTo(0, document.body.scrollHeight);
 });
 
 document.getElementById("message").addEventListener("submit", (event) => {

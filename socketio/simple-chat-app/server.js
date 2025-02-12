@@ -13,9 +13,11 @@ io.on("connect", (socket) => {
   console.log(`${socket.id} has joined our server`);
 
   socket.on("msgFromClientToServer", (newMessage) => {
+    let time = new Date();
     io.emit("msgFromServerToAllClients", {
       id: socket.id,
       newMsg: newMessage,
+      time: time,
     });
   });
 });
