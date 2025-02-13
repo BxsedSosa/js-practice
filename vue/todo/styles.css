@@ -1,0 +1,11 @@
+#tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#task-temp {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To Do</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="todoTask">
+      <h1>To Do</h1>
+      <input
+        @keyup.enter="addTask"
+        v-model="addTaskText"
+        placeholder="task..."
+      /><button @click="addTask">Add</button>
+      <ul id="tasks">
+        <teamplate id="task-temp" v-for="(task, idx) in tasks">
+          <input type="checkbox" />
+          <div>{{task}}</div>
+          <button @click="deleteTask(idx)">Delete</button>
+          <br />
+        </teamplate>
+      </ul>
+    </div>
+  </body>
+</html>
