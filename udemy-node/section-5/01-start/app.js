@@ -1,15 +1,21 @@
+const path = require("path");
 const express = require("express");
+const bodyParser = require("body-parser");
+
+const adminRouters = require("./routes/admin.js");
+const shopRouters = require("./routes/shop.js");
 
 const app = express();
 
-app.use("/add-product", (req, res, next) => {
-  console.log("next middle ware");
-  res.send("<h1>Add product page</h1>");
-});
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", (req, res, next) => {
-  console.log("next middle ware");
-  res.send("<h1>Hello from express</h1>");
+app.use("/admin", adminRouters);
+app.use(shopRouters);
+
+app.use((req, res) => {
+  res
+    .status(404)
+    .sendFile(path.join(__dirname, "views", "page-not-found.html"));
 });
 
 app.listen(3000);
