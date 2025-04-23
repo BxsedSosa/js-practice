@@ -36,20 +36,35 @@ const BookList = () => {
   );
 };
 
+const EventExamples = () => {
+  return (
+    <section>
+      <form>
+        <h2>Typical Form</h2>
+        <input type="text" name="example" style={{ margin: "1rem 0" }} />
+        <button type="submit">Submit</button>
+        <button
+          onClick={() => {
+            console.log("clicked me");
+          }}
+          type="button"
+        >
+          Button
+        </button>
+      </form>
+    </section>
+  );
+};
+
 const Book = ({ img, title, author }) => {
   return (
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <h4
-        style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.5rem" }}
-      >
-        {author}
-      </h4>
+      <h4>{author}</h4>
     </article>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 root.render(<BookList />);
